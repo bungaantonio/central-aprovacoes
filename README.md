@@ -11,7 +11,7 @@ Este projeto implementa uma central de aprovação com busca, seleção e açõe
 
 ## Decisões técnicas e observações
 
-- **Separação de responsabilidades**: Componentes, store e serviços separados de forma clara para facilitar manutenção.
+- **Separação de responsabilidades**: Componentes e store separados de forma clara para facilitar manutenção.
 - **Persistência local**: Os dados são salvos no localStorage simulando uma API offline.
 - **Ações em massa**: Implementado com feedback visual, confirmação via modal e tratamento de loading.
 

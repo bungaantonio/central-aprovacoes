@@ -54,9 +54,10 @@
             <Icon name="i-heroicons-document-magnifying-glass" class="w-16 h-16 text-gray-400 mx-auto mb-4" />
             <h3 class="text-lg font-medium text-gray-900 mb-2">Nenhum item encontrado</h3>
             <p class="text-gray-500">
-                {{ approvalsStore.searchQuery || approvalsStore.statusFilter !== 'ALL'
-                    ? 'Tente ajustar os filtros de busca.'
-                    : 'Não há itens para aprovação no momento.' }}
+                {{ approvalsStore.searchQuery
+  ? 'Tente ajustar sua busca.'
+  : 'Não há itens para aprovação no momento.' }}
+
             </p>
         </div>
 
@@ -73,7 +74,7 @@ import { useApprovalStore } from '~/stores/approvals'
 
 import ApprovalItem from '~/components/ApprovalItem.vue'
 import BulkApproveModal from '~/components/BulkApproveModal.vue'
-import SearchAndFilters from '~/components/SearchAndFilters.vue'
+import SearchAndFilters from '~/components/SearchBox.vue'
 
 const approvalsStore = useApprovalStore()
 const selectedItems = ref<number[]>([])

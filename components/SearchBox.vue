@@ -13,13 +13,6 @@
             </UInput>
         </div>
 
-        <!-- Filtro por status -->
-        <USelectMenu v-model="statusFilter" :options="statusOptions" option-attribute="label" value-attribute="value"
-            :loading="isLoading" class="w-full md:w-48">
-            <template #leading>
-                <Icon name="i-heroicons-funnel" />
-            </template>
-        </USelectMenu>
     </div>
 </template>
 
@@ -34,18 +27,9 @@ const searchQuery = computed({
     set: (value: string) => approvalsStore.setSearchQuery(value),
 })
 
-const statusFilter = computed({
-    get: () => approvalsStore.statusFilter,
-    set: (value: "ALL" | "PENDING" | "APPROVED") => approvalsStore.setStatusFilter(value),
-})
 
 const isLoading = computed(() => approvalsStore.isLoading)
 
-const statusOptions = [
-    { label: 'Todos', value: 'ALL' },
-    { label: 'Pendentes', value: 'PENDING' },
-    { label: 'Aprovados', value: 'APPROVED' },
-]
 
 function clearSearch() {
     searchQuery.value = ''

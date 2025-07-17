@@ -1,75 +1,53 @@
-# Nuxt Minimal Starter
+# Painel de Aprovação Simplificado
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Este projeto implementa uma central de aprovação com busca, seleção e ações em massa, usando Nuxt 3, Pinia, Tailwind CSS e Nuxt UI.
 
-## Setup
+## Stack utilizada
 
-Make sure to install dependencies:
+- [Nuxt 3](https://nuxt.com/)
+- [Pinia](https://pinia.vuejs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Nuxt UI ](https://ui.nuxt.com/)
+
+## Decisões técnicas e observações
+
+- **Separação de responsabilidades**: Componentes, store e serviços separados de forma clara para facilitar manutenção.
+- **Persistência local**: Os dados são salvos no localStorage simulando uma API offline.
+- **Ações em massa**: Implementado com feedback visual, confirmação via modal e tratamento de loading.
+
+---
+## Funcionalidades implementadas
+- [x] Listagem de aprovações pendentes.
+- [x] Ação em massa: botão **"Aprovar Selecionados"**.
+- [x] Mudança de status do item para `APPROVED` após aprovação.
+- [x] Modal de confirmação para aprovação em massa.
+- [x] Badge com cor condicional: verde (aprovado), cinza (pendente).
+- [x] Filtro de busca.
+- [x] Persistência com `localStorage`
+>
+
+## Como rodar
 
 ```bash
-# npm
+git clone https://github.com/bungaantonio/central-aprovacoes.git
+cd central-aprovacoes
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+## Estrutura
+`Uma estrutura modular que me permite manter e atualizar o aplicativo`
 ```
+components/
+├── ApprovalItem.vue
+├── SearchBox.vue
+├── BulkApproveModal.vue
 
-Locally preview production build:
+pages/
+└── index.vue
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+stores/
+├── approvalService.ts
+├── mockApprovals.ts
+└── approvals.ts
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

@@ -137,7 +137,8 @@ async function confirmBulk() {
 }
 
 function clearLocalStorage() {
-    approvalsStore.clearStorage()
-    approvalsStore.fetchApprovals()
+    approvalsStore.resetToMock()
+    selectedItems.value = []
 }
+
 </script>

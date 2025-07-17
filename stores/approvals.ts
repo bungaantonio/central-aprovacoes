@@ -53,13 +53,17 @@ export const useApprovalStore = defineStore("approvals", {
   actions: {
     async fetchApprovals() {
       this.isLoading = true;
-
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       const saved = loadApprovals();
-      this.items = saved.length ? saved : mockApprovals;
 
-      saveApprovals(this.items);
+      if (saved.length > 0) {
+        this.items = saved;
+      } else {
+        this.items = mockApprovals;
+        saveApprovals(this.items);
+      }
+
       this.isLoading = false;
     },
 
@@ -83,8 +87,9 @@ export const useApprovalStore = defineStore("approvals", {
       this.statusFilter = status;
     },
 
-    clearStorage() {
-      clearApprovals();
+    resetToMock() {
+      this.items = JSON.parse(JSON.stringify(mockApprovals));
+      saveApprovals(this.items);
     },
   },
 });

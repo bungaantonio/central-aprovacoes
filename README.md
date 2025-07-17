@@ -1,4 +1,4 @@
-# Painel de Aprovação Simplificado
+# Teste Técnico - Central de Aprovações
 
 Este projeto implementa uma central de aprovação com busca, seleção e ações em massa, usando Nuxt 3, Pinia, Tailwind CSS e Nuxt UI.
 
